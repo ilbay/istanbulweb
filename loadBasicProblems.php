@@ -5,7 +5,7 @@
     $db = new SQLite3('istanbulweb.db');
     $db->exec("PRAGMA encoding='UTF-8'");
     //TODO: Status filter is needed.
-    $results = $db->query("SELECT reportdate,latitude,longtitude,photo,description FROM PROBLEMS");
+    $results = $db->query("SELECT id,reportdate,latitude,longtitude,photo,description FROM PROBLEMS");
 
     $motherArray = array();
     $problems = array();
@@ -14,6 +14,7 @@
     {
         $p = array();
         
+        $p["problemid"] = $arr["id"];
         $p["latitude"] = $arr["latitude"];
         $p["longitude"] = $arr["longtitude"];
         $p["photo"] = $arr["photo"];

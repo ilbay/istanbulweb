@@ -126,7 +126,7 @@
                     var str = "<ul class='thumbnails'>";
                     for(var i = 0; i < data.length; i++)
                     {
-                        str += "<li><div class='thumbnail' style='display:block;'>";
+                        str += "<li><div class='thumbnail' attr='"+data[i]["problemid"]+"' style='display:block;' onclick='onClickProblemList(this)'>";
                         str += "<img src='"+data[i]["photo"]+"' style='width:25%;height:100%;float:left;margin-right:20px;'/>";
                         str += "<div style='height:100%;word-wrap:break-word;margin:0;'>"+data[i]["description"]+"</div>";
                         str += "</div></li>";
@@ -134,6 +134,11 @@
                     str += "</ul>";
                     $("#problemsList").html(str);
                 });
+            }
+            
+            function onClickProblemList(el)
+            {
+                window.location.href='displayProblem.php?problem='+$(el).attr('attr');
             }
             
             window.onload = loadGoogleMaps;

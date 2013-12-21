@@ -52,6 +52,16 @@
                 height: 50%;
                 margin:0;
             }
+            .thumbnail
+            {
+                width:100%;
+                height:125px;
+            }
+            ul.thumbnails
+            {
+                padding: 10px;
+                list-style:none;
+            }
         </style>
         
         <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
@@ -106,6 +116,17 @@
                             };
                         })(marker,data[i]));
                     }
+                    
+                    var str = "<ul class='thumbnails'>";
+                    for(var i = 0; i < data.length; i++)
+                    {
+                        str += "<li><div class='thumbnail' style='display:block;'>";
+                        str += "<img src='"+data[i]["photo"]+"' style='width:25%;height:100%;float:left;margin-right:20px;'/>";
+                        str += "<div style='height:100%;word-wrap:break-word;margin:0;'>"+data[i]["description"]+"</div>";
+                        str += "</div></li>";
+                    }
+                    str += "</ul>";
+                    $("#problemsList").html(str);
                 });
             }
             
@@ -133,7 +154,8 @@
                 <div id="mapCanvas"></div>
             </div>
             <div class="col-md-5">
-                <div></div>
+                <div class="list-group" id="problemsList">
+                </div>
             </div>
         </div>
         

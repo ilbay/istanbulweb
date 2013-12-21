@@ -113,7 +113,7 @@
                 
                         google.maps.event.addListener(marker, 'click', (function(marker,data) {
                             return function(){
-                                infowindow.setContent("<div class='markerContent'><div class='markerLeft'><img class='markerImage' src='"+data["photo"]+"'/></div><div class='markerRight'>"+data["description"]+"</div></div>");
+                                infowindow.setContent("<div class='markerContent'><div class='markerLeft'><img class='markerImage' src='"+data["photo"]+"'/></div><div class='markerRight'>"+decodeURIComponent(data["description"])+"</div></div>");
                                 infowindow.open(googlemap,marker);
                             };
                         })(marker,data[i]));

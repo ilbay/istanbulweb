@@ -1,9 +1,9 @@
 <?php
 
-    header('Content-type: text/html; charset=iso-8859-9');
+    header('Content-type: text/html; charset=utf-8');
 
     $db = new SQLite3('istanbulweb.db');
-    $db->exec("PRAGMA encoding='UTF-8'");
+    //$db->exec("PRAGMA encoding='UTF-8'");
     //TODO: Status filter is needed.
     $results = $db->query("SELECT id,reportdate,latitude,longtitude,photo,description FROM PROBLEMS");
 
@@ -13,12 +13,12 @@
     while( $arr = $results->fetchArray(SQLITE3_ASSOC) )
     {
         $p = array();
-        
+  
         $p["problemid"] = $arr["id"];
         $p["latitude"] = $arr["latitude"];
         $p["longitude"] = $arr["longtitude"];
         $p["photo"] = $arr["photo"];
-        $p["description"] = utf8_encode($arr["description"]);
+        $p["description"] = $arr["description"];
         $p["reportdate"] = $arr["reportdate"];
         
         array_push($problems, $p);

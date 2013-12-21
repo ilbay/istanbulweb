@@ -7,14 +7,14 @@
         $mail = $_POST['usermail'];
         
         $db = new SQLite3('istanbulweb.db');
-        $res = $db->exec("INSERT INTO USERS(fullname, mail, password) VALUES('$username', '$password', '$mail')");
+        $res = $db->exec("INSERT INTO USERS(fullname, mail, password) VALUES('$username', '$mail', '$password')");
         $msg = "";
         if($res)
         {
             session_start();
             $_SESSION['userid'] = $db->lastInsertRowID();
             $_SESSION['username'] = $username;
-            $_SESSION['usermail'] = $usermail;
+            $_SESSION['usermail'] = $mail;
             $msg = "success";
         }
         else

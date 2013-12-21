@@ -1,3 +1,32 @@
+    <script type="text/javascript">
+    
+        function signinFormSubmit()
+        {
+            var usermail = document.forms["signinForm"]["mail"].value;
+            var userpassword = document.forms["signinForm"]["password"].value;
+            
+            $.ajax({
+                url : 'login.php',
+                type : 'post',
+                dataType : "text",
+                data : {usermail : usermail, userpassword : userpassword},
+                success : function(msg)
+                {
+                    if(msg == "success")
+                    {
+                        window.location.reload();
+                    }
+                    else
+                    {
+                        alert("Giris basarisiz.");
+                    }
+                }
+            });
+        }
+    
+    </script>
+
+
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -10,14 +39,14 @@
                 <a class="navbar-brand" href="index.php">&#304;STANBUL</a>
             </div>
             <div class="navbar-collapse collapse">
-                <form class="navbar-form navbar-right" role="form">
+                <form name="signinForm" class="navbar-form navbar-right" role="form">
                     <div class="form-group">
-                        <input type="text" placeholder="Email" class="form-control">
+                        <input name="mail" type="text" placeholder="Email" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Password" class="form-control">
+                        <input name="password" type="password" placeholder="Password" class="form-control" required>
                     </div>
-                    <button type="submit" class="btn btn-success">Sign in</button>
+                    <button type="button" class="btn btn-success" onclick="signinFormSubmit()">Sign in</button>
                     <button type="button" class="btn" onclick="window.location='signup.php'">Sign up!</button>
                 </form>
             </div>

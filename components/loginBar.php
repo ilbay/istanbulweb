@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">&#304;STANBUL</a>
+                <a class="navbar-brand" href="index.php">&#304;STANBUL</a>
             </div>
             <div class="navbar-collapse collapse">
                 <form class="navbar-form navbar-right" role="form">
@@ -18,7 +18,7 @@
                         <input type="password" placeholder="Password" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-success">Sign in</button>
-                    <button type="button" class="btn">Sign up!</button>
+                    <button type="button" class="btn" onclick="window.location='login.php'">Sign up!</button>
                 </form>
             </div>
         </div>

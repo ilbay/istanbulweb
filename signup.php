@@ -62,6 +62,69 @@
         
         <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script> 
+        
+        <script type="text/javascript">
+        
+            function signupFormSubmit()
+            {
+                var nameRegex = /^[a-zA-Z]+(\s[a-zA-Z]+)+$/g;
+                var mailRegex = /^[a-zA-Z0-9\.\-_]+@[a-z]+\.(com|net)(\.tr)?$/g;
+                var passwordRegex = /^.{6,18}$/g
+                
+                var userName = document.forms["signupForm"]["userName"].value;
+                var userMail = document.forms["signupForm"]["mailAddress"].value;
+                var password = document.forms["signupForm"]["userPassword"].value;
+                var repeatPassword = document.forms["signupForm"]["repeatUserPassword"].value;
+                
+                if(!nameRegex.test(userName))
+                {
+                    showErrorMessage("Adýnýz tanýmlanamadý.");
+                    return;
+                }
+                
+                if(!mailRegex.test(userMail))
+                {
+                    showErrorMessage("Mail adresiniz tanýmlanamadý.");
+                    return;
+                }
+                
+                if(password != repeatPassword)
+                {
+                    showErrorMessage("Þifreniz uyuþmuyor.");
+                    return;
+                }
+                
+                if(!passwordRegex.test(password))
+                {
+                    showErrorMessage("Þifreniz en az 6, en fazla 18 karakter olmalýdýr.");
+                    return;
+                }
+                
+                $.ajax({
+                    url:'adduser.php',
+                    type: 'post',
+                    dataType: 'text',
+                    data:{username:userName, usermail:userMail, userpassword:password},
+                    success:function(msg){
+                        if(msg=="success")
+                        {
+                            window.location.href = 'index.php';
+                        }
+                        else
+                        {
+                            showErrorMessage(msg);
+                        }
+                    }
+                });
+                
+            }
+            
+            function showErrorMessage(errorMessage)
+            {
+                $("#errorText").html(errorMessage).css("display","block");
+            }
+        
+        </script>
     
     </head>
     
@@ -71,16 +134,17 @@
         
         <div class="container" style="display:table;height:100%;">
             <div style="display:table-cell;vertical-align:middle;">
-                <form class="form-signin" role="form">
+                <form name="signupForm" class="form-signin" role="form">
                     <input type="text" name="userName" class="form-control" placeholder="Ad Soyad" required autofocus>
                     <input type="text" name="mailAddress" class="form-control" placeholder="Mail Adresi" required>
                     <input type="password" name="userPassword" class="form-control" placeholder="Þifre" required>
                     <input type="password" name="repeatUserPassword" class="form-control" placeholder="Þifre Tekrarý" required>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Kayýt Ol</button>
+                    <p id="errorText" style="display:none;"></p>
+                    <button class="btn btn-lg btn-primary btn-block" type="button" onclick="signupFormSubmit()">Kayýt Ol</button>
                 </form>
             </div>
         </div>
         
     </body>
-
+    
 </html>

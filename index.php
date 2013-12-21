@@ -57,6 +57,12 @@
                 width:100%;
                 height:125px;
             }
+            .thumbnail:hover
+            {
+                background-color:#428bca;
+                border-color:#428bca;
+                cursor:pointer;
+            }
             ul.thumbnails
             {
                 padding: 10px;

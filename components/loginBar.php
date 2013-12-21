@@ -18,7 +18,7 @@
                         <input type="password" placeholder="Password" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-success">Sign in</button>
-                    <button type="button" class="btn" onclick="window.location='login.php'">Sign up!</button>
+                    <button type="button" class="btn" onclick="window.location='signup.php'">Sign up!</button>
                 </form>
             </div>
         </div>

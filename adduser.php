@@ -19,7 +19,7 @@
         }
         else
         {
-            $msg = "$mail adresiyle zaten kayit olmussunuz.";
+            $msg = "$mail adresiyle zaten kayıt olmuşsunuz.";
         }
         
         $db->close();

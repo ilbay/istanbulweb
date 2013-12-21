@@ -10,7 +10,7 @@
 <html>
 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         
         <title>KAYIT SAYFASI</title>
@@ -87,25 +87,25 @@
                 
                 if(!nameRegex.test(userName))
                 {
-                    showErrorMessage("Adınız tanımlanamadı.");
+                    showErrorMessage("AdÄ±nÄ±z tanÄ±mlanamadÄ±.");
                     return;
                 }
                 
                 if(!mailRegex.test(userMail))
                 {
-                    showErrorMessage("Mail adresiniz tanımlanamadı.");
+                    showErrorMessage("Mail adresiniz tanÄ±mlanamadÄ±.");
                     return;
                 }
                 
                 if(password != repeatPassword)
                 {
-                    showErrorMessage("Şifreniz uyuşmuyor.");
+                    showErrorMessage("Åifreniz uyuÅŸmuyor.");
                     return;
                 }
                 
                 if(!passwordRegex.test(password))
                 {
-                    showErrorMessage("Şifreniz en az 6, en fazla 18 karakter olmalıdır.");
+                    showErrorMessage("Åifreniz en az 6, en fazla 18 karakter olmalÄ±dÄ±r.");
                     return;
                 }
                 
@@ -146,10 +146,10 @@
                 <form name="signupForm" class="form-signin" role="form">
                     <input type="text" name="userName" class="form-control" placeholder="Ad Soyad" required autofocus>
                     <input type="text" name="mailAddress" class="form-control" placeholder="Mail Adresi" required>
-                    <input type="password" name="userPassword" class="form-control" placeholder="Şifre" required>
-                    <input type="password" name="repeatUserPassword" class="form-control" placeholder="Şifre Tekrarı" required>
+                    <input type="password" name="userPassword" class="form-control" placeholder="Åifre" required>
+                    <input type="password" name="repeatUserPassword" class="form-control" placeholder="Åifre TekrarÄ±" required>
                     <p id="errorText" style="display:none;"></p>
-                    <button class="btn btn-lg btn-primary btn-block" type="button" onclick="signupFormSubmit()">Kayıt Ol</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="button" onclick="signupFormSubmit()">KayÄ±t Ol</button>
                 </form>
             </div>
         </div>

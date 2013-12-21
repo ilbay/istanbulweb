@@ -1,12 +1,8 @@
 <?php session_start(); ?>
 
-<?php
-    header('Content-type: text/html; charset=iso-8859-9'); 
-?>
-
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
         <title>ANA SAYFA</title>
@@ -112,7 +108,7 @@
                         var marker = new google.maps.Marker({
                             position: new google.maps.LatLng(parseFloat(data[i]["latitude"]), parseFloat(data[i]["longitude"])),
                             map: googlemap,
-                            title: 'Detay için tıklayınız'
+                            title: 'Detay iÃ§in tÄ±klayÄ±nÄ±z.'
                         });
                 
                         google.maps.event.addListener(marker, 'click', (function(marker,data) {

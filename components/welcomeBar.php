@@ -7,12 +7,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">&#304;STANBUL</a>
+                <a class="navbar-brand" href="index.php">İSTANBUL</a>
             </div>
             <div class="navbar-collapse collapse">
                 <div class="navbar-form navbar-right">
-                    <span style="color:#ffffff">Hosgeldiniz <?php echo $_SESSION['username'];?>,</span>
-                    <a href="logout.php" style="color:#ffffff;font-weight:bold;"><u>Cikis</u></a>
+                    <span style="color:#ffffff">Hoşgeldiniz <?php echo $_SESSION['username'];?>,</span>
+                    <a href="logout.php" style="color:#ffffff;font-weight:bold;"><u>Çıkış</u></a>
                 </div>
             </div>
         </div>

@@ -18,7 +18,7 @@
                     }
                     else
                     {
-                        alert("Giris basarisiz.");
+                        alert("Giriş başarısız.");
                     }
                 }
             });
@@ -36,18 +36,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">&#304;STANBUL</a>
+                <a class="navbar-brand" href="index.php">İSTANBUL</a>
             </div>
             <div class="navbar-collapse collapse">
                 <form name="signinForm" class="navbar-form navbar-right" role="form">
                     <div class="form-group">
-                        <input name="mail" type="text" placeholder="Email" class="form-control" required>
+                        <input name="mail" type="text" placeholder="Mail" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <input name="password" type="password" placeholder="Password" class="form-control" required>
+                        <input name="password" type="password" placeholder="Şifre" class="form-control" required>
                     </div>
-                    <button type="button" class="btn btn-success" onclick="signinFormSubmit()">Sign in</button>
-                    <button type="button" class="btn" onclick="window.location='signup.php'">Sign up!</button>
+                    <button type="button" class="btn btn-success" onclick="signinFormSubmit()">Giriş Yap</button>
+                    <button type="button" class="btn" onclick="window.location='signup.php'">Üye Ol</button>
                 </form>
             </div>
         </div>

@@ -50,14 +50,10 @@
     }
 ?>
 
-<?php
-    header('Content-type: text/html; charset=iso-8859-9'); 
-?>
-
 <html>
     <head>
     
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
         <title>PROBLEM - <?php echo $problem["category"]; ?></title>

@@ -1,5 +1,9 @@
 <?php session_start(); ?>
 
+<?php
+    header('Content-type: text/html; charset=iso-8859-9'); 
+?>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9"/>
@@ -22,6 +26,32 @@
                 height:95%;
                 width:100%;
             }
+            .markerContent
+            {
+                overflow:hidden;
+                width:100%;
+                display:table-row;
+                padding:5px;
+            }
+            .markerLeft
+            {
+                padding:0;
+                margin:0;
+                width:25%;
+                display:table-cell;
+            }
+            .markerRight{
+                padding:1px;
+                margin:0;
+                width:75%;
+                display:table-cell;
+            }
+            .markerImage
+            {
+                width: 100%;
+                height: 50%;
+                margin:0;
+            }
         </style>
         
         <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
@@ -30,14 +60,21 @@
         
         <script type="text/javascript">
         
+            var googlemap = null;
+                    
             function initialize() {
-                
+                google.maps.visualRefresh = true;
                 var mapOptions = {
-                    zoom: 8,
-                    center: new google.maps.LatLng(41.077281, 28.986633)
+                    zoom: 9,
+                    center: new google.maps.LatLng(41.077281, 28.986633),
+                    panControl:false,
+                    zoomControl:true,
+                    scaleControl:true
                 };
 
-                var map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
+                googlemap = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
+                
+                loadRegionalProblems();
             }
         
             function loadGoogleMaps()
@@ -47,6 +84,31 @@
                 googleMapsScript.src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfnlGcQMbxsiSpsnFGzKkzw3Qx4VsHBnw&sensor=false&region=TR&callback=initialize";
                 document.body.appendChild(googleMapsScript);
             }
+            
+            function loadRegionalProblems()
+            {
+                var infowindow = new google.maps.InfoWindow({size: new google.maps.Size(20,20)});
+
+                $.getJSON('loadBasicProblems.php',function(data){
+                    data = data["problems"];
+                    for(var i = 0; i < data.length; i++)
+                    {
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(parseFloat(data[i]["latitude"]), parseFloat(data[i]["longitude"])),
+                            map: googlemap,
+                            title: 'Detay için tıklayınız'
+                        });
+                
+                        google.maps.event.addListener(marker, 'click', (function(marker,data) {
+                            return function(){
+                                infowindow.setContent("<div class='markerContent'><div class='markerLeft'><img class='markerImage' src='"+data["photo"]+"'/></div><div class='markerRight'>"+data["description"]+"</div></div>");
+                                infowindow.open(googlemap,marker);
+                            };
+                        })(marker,data[i]));
+                    }
+                });
+            }
+            
             window.onload = loadGoogleMaps;
         
         </script>

@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9"/>
@@ -53,7 +55,17 @@
     
     <body>
     
-        <?php include("components/loginBar.php"); ?>
+        <?php
+            if(isset($_SESSION['userid']))
+            {
+                include("components/welcomeBar.php");
+            }
+            else
+            {
+                include("components/loginBar.php");
+            }
+        ?>
+
         <div id="mapCanvas"></div>
         
     </body>

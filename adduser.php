@@ -13,6 +13,8 @@
         {
             session_start();
             $_SESSION['userid'] = $db->lastInsertRowID();
+            $_SESSION['username'] = $username;
+            $_SESSION['usermail'] = $usermail;
             $msg = "success";
         }
         else

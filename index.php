@@ -19,8 +19,8 @@
             #mapCanvas
             {
                 margin-top:5px;
-                height:90%;
-                width:50%;
+                height:95%;
+                width:100%;
             }
         </style>
         
@@ -54,7 +54,7 @@
     </head>
     
     <body>
-    
+        
         <?php
             if(isset($_SESSION['userid']))
             {
@@ -66,7 +66,14 @@
             }
         ?>
 
-        <div id="mapCanvas"></div>
+        <div class="row">
+            <div class="col-md-7">
+                <div id="mapCanvas"></div>
+            </div>
+            <div class="col-md-5">
+                <div></div>
+            </div>
+        </div>
         
     </body>
 </html>

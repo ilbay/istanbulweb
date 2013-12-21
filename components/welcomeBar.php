@@ -11,8 +11,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <div class="navbar-form navbar-right">
-                    <span>Hosgeldiniz <?php echo $_SESSION['username'];?>,</span>
-                    <a href="logout.php">Cikis</a>
+                    <span style="color:#ffffff">Hosgeldiniz <?php echo $_SESSION['username'];?>,</span>
+                    <a href="logout.php" style="color:#ffffff;font-weight:bold;"><u>Cikis</u></a>
                 </div>
             </div>
         </div>

@@ -15,11 +15,13 @@
         $p = array();
   
         $p["problemid"] = $arr["id"];
+        $problemid = $arr["id"];
         $p["latitude"] = $arr["latitude"];
         $p["longitude"] = $arr["longtitude"];
         $p["photo"] = $arr["photo"];
         $p["description"] = $arr["description"];
         $p["reportdate"] = $arr["reportdate"];
+        $p["voteCount"] = $db->querySingle("SELECT count(id) FROM VOTES WHERE problem='$problemid'");
         
         array_push($problems, $p);
     }

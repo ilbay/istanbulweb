@@ -31,12 +31,14 @@
             }
             .markerLeft
             {
+                overflow:hidden;
                 padding:0;
                 margin:0;
                 width:25%;
                 display:table-cell;
             }
             .markerRight{
+                overflow:hidden;
                 padding:1px;
                 margin:0;
                 width:75%;
@@ -124,7 +126,8 @@
                     {
                         str += "<li><div class='thumbnail' attr='"+data[i]["problemid"]+"' style='display:block;' onclick='onClickProblemList(this)'>";
                         str += "<img src='"+data[i]["photo"]+"' style='width:25%;height:100%;float:left;margin-right:20px;'/>";
-                        str += "<div style='height:100%;word-wrap:break-word;margin:0;'>"+data[i]["description"]+"</div>";
+                        str += "<div style='height:100%;word-wrap:break-word;margin:0;height:80%;'>"+data[i]["description"]+"</div>";
+                        str += "<span class='badge badge-warning' style='float:right;'>"+data[i]["voteCount"]+"</span>";
                         str += "</div></li>";
                     }
                     str += "</ul>";

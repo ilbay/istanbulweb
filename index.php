@@ -115,7 +115,7 @@
                 
                         google.maps.event.addListener(marker, 'click', (function(marker,data) {
                             return function(){
-                                infowindow.setContent("<div class='markerContent'><div class='markerLeft'><img class='markerImage' src='"+data["photo"]+"'/></div><div class='markerRight'>"+decodeURIComponent(data["description"])+"</div></div>");
+                                infowindow.setContent("<div class='markerContent'><div class='markerLeft'><img class='markerImage' src='"+data["photo"]+"'/></div><div class='markerRight'>"+decodeURIComponent(data["description"])+"</div><a href='displayProblem.php?problem="+data["problemid"]+"'>fazlası&#62;&#62;</a></div>");
                                 infowindow.open(googlemap,marker);
                             };
                         })(marker,data[i]));
